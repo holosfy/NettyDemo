@@ -1,4 +1,4 @@
-package com.holos.httpserver;
+package com.holos.socket;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -6,19 +6,22 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class TestServer {
+public class MyServer {
     public static void main(String[] args) throws InterruptedException {
-        //接收连接不做处理，转给worker
         EventLoopGroup bossGroup = new NioEventLoopGroup();
-        //接收boss的连接，做出相应处理。
         EventLoopGroup workerGroup = new NioEventLoopGroup();
+
 
         try {
 
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup,workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new TestServerInitializer());
+                    /*
+                     * Handler      在 bossGroup   中执行
+                     * childHandler 在 workerGroup 中执行
+                     */
+                    .childHandler(new MyServerInitializer());
 
             ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
@@ -27,8 +30,5 @@ public class TestServer {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
-
-
-
     }
 }

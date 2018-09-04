@@ -1,4 +1,4 @@
-package com.holos.httpserver;
+package com.holos.http;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,4 +1,4 @@
-package com.holos.httpserver;
+package com.holos.http;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
