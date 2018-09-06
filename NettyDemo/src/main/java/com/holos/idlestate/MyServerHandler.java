@@ -1,18 +1,22 @@
-package com.holos.cluster;
+package com.holos.idlestate;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.timeout.IdleStateEvent;
+
+import java.time.LocalDateTime;
 
 public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if (evt instanceof IdleStateEvent){
-            IdleStateEvent event = (IdleStateEvent)evt;
+        if (evt instanceof IdleStateEvent) {
+            IdleStateEvent event = (IdleStateEvent) evt;
             String eventType = null;
 
-            switch (event.state()){
+            switch (event.state()) {
                 case READER_IDLE:
                     eventType = "读空闲";
                     break;
@@ -29,3 +33,4 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
         }
     }
 }
+

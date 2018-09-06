@@ -1,4 +1,4 @@
-package com.holos.cluster;
+package com.holos.idlestate;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
