@@ -1,4 +1,4 @@
-package com.holos.netty;
+package com.holos.protobuf.netty;
 
 import com.holos.protobuf.DataInfo;
 import com.holos.protobuf.MyDataInfo;

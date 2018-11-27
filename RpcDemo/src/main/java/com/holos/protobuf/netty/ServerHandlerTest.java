@@ -1,6 +1,5 @@
-package com.holos.netty;
+package com.holos.protobuf.netty;
 
-import com.holos.protobuf.DataInfo;
 import com.holos.protobuf.MyDataInfo;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

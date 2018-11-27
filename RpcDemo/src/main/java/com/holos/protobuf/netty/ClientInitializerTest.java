@@ -1,6 +1,6 @@
-package com.holos.netty.old;
+package com.holos.protobuf.netty;
 
-import com.holos.protobuf.DataInfo;
+import com.holos.protobuf.MyDataInfo;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -16,7 +16,7 @@ public class ClientInitializerTest extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = ch.pipeline();
 
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
-        pipeline.addLast(new ProtobufDecoder(DataInfo.Student.getDefaultInstance()));
+        pipeline.addLast(new ProtobufDecoder(MyDataInfo.MyMessage.getDefaultInstance()));
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
 

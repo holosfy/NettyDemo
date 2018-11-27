@@ -1,4 +1,4 @@
-package com.holos.netty;
+package com.holos.protobuf.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
